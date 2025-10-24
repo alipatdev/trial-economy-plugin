@@ -330,7 +330,7 @@ Configurazione caricata!
 
 ```bash
 # Clone repository
-git clone https://github.com/marskernel/trial-economy.git
+git clone https://github.com/alipatdev/trial-economy.git
 cd trial-economy
 
 # Compila con Shadow
