@@ -1,0 +1,38 @@
+name: trial-economy
+version: '1.0-SNAPSHOT'
+main: com.marskernel.trialEconomy.TrialEconomy
+api-version: '1.21'
+description: Sistema economy ad alte prestazioni per Spigot 1.21.8
+author: Patrizio
+website: https://github.com/marskernel
+
+commands:
+  balance:
+    description: Mostra il tuo bilancio attuale
+    usage: /balance
+    aliases: [bal, money, soldi]
+    permission: economy.balance
+    permission-message: "§cNon hai il permesso per usare questo comando!"
+
+  pay:
+    description: Invia denaro ad un altro giocatore
+    usage: /pay <giocatore> <importo>
+    aliases: [invia, transfer, trasferisci]
+    permission: economy.pay
+    permission-message: "§cNon hai il permesso per usare questo comando!"
+
+permissions:
+  economy.*:
+    description: Permesso completo per tutti i comandi economy
+    children:
+      economy.balance: true
+      economy.pay: true
+    default: true
+
+  economy.balance:
+    description: Permette di controllare il proprio bilancio
+    default: true
+
+  economy.pay:
+    description: Permette di inviare denaro ad altri giocatori
+    default: true

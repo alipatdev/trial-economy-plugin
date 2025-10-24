@@ -1,0 +1,64 @@
+# ============================================
+# Trial: Economy - Configurazione
+# Sistema Economy ad Alte Prestazioni
+# ============================================
+
+# Bilancio iniziale per nuovi giocatori
+# Ogni giocatore che si connette per la prima volta riceverà questo importo
+starting-balance: 1000.0
+
+# Simbolo della valuta da mostrare nei messaggi (es: $, €, ¤, etc.)
+currency-symbol: "€"
+
+# Nome della valuta (es: dollari, euro, monete, crediti)
+# Usato nei messaggi per rendere l'esperienza più immersiva
+currency-name: "euro"
+
+# Bilancio massimo che un giocatore può possedere
+# Previene accumulo eccessivo e mantiene l'economia bilanciata
+max-balance: 1000000000.0
+
+# Importo minimo per le transazioni /pay
+# Previene spam di micro-transazioni
+min-transaction: 0.01
+
+# Durata della cache in secondi
+# Tempo per cui i dati dei giocatori offline rimangono in memoria
+# Valori più alti = migliori performance, ma più memoria utilizzata
+# Valori consigliati: 1800 (30 min) per server grandi, 3600 (1 ora) per server piccoli
+cache-duration: 1800
+
+# ============================================
+# Configurazione Database
+# ============================================
+# Il plugin usa H2 Database per prestazioni ottimali
+# I dati sono salvati in: plugins/trial-economy/economy.mv.db
+#
+# Caratteristiche H2:
+# - Database embedded (nessun server esterno richiesto)
+# - Prestazioni eccellenti (più veloce di SQLite)
+# - Connection pooling con HikariCP per 500+ giocatori
+# - Transazioni ACID garantite
+# - Zero impatto TPS con operazioni asincrone
+# ============================================
+
+# Note Performance:
+# - I bilanciamenti sono caricati in cache all'accesso
+# - Le operazioni database sono completamente asincrone
+# - Salvataggio automatico ogni 5 minuti
+# - Pool di connessioni configurato per alta concorrenza (20 connessioni max)
+# - Supporto completo per giocatori offline
+
+# ============================================
+# Messaggi e Localizzazione
+# ============================================
+# Tutti i messaggi del plugin sono in italiano
+# Per personalizzarli, modifica i file command nei sorgenti
+
+# ============================================
+# Permessi
+# ============================================
+# economy.balance - Permette di usare /balance
+# economy.pay - Permette di usare /pay
+#
+# Per dare tutti i permessi: economy.*
